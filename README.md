@@ -8,7 +8,7 @@ Azərbaycan Dəmir Yolları - Bakı Sumqayıt Bakı üzrə hərəkət cədvəlin
 
 `$ python ady.py -h` kömək üçün
 
-`$ python ady.py` argumenləri:
+`$ python ady.py` argumentləri:
 
 `$ python ady.py [-b] [--baku] [--bakı] [-s] [--sum] [--sumgait] [--sumqayıt] [-a] [--all] [--ha] [--hamısı]`
 
