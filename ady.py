@@ -4,6 +4,8 @@ from __future__ import print_function
 import requests
 import os
 import sys
+import argparse
+
 from fabulous import text
 try:
     from BeautifulSoup import BeautifulSoup
@@ -67,31 +69,37 @@ def getTable():
             sum_table.append(brr)
         numbs = numbs[c:len(numbs)]
 
+def help():
+    print(text.Text("ady", color='#0099ff', shadow=True, skew=5))
+    print("ady -- Bakı -> Sumqayıt -> Bakı hərəkət cədvəli")
+    print("ady ['baku'] -- bakı üçün hərəkət cədvəli")
+    print("ady ['sum'] -- sumqayıt üçün hərəkət cədvəli")
+    print("ady ['all'] -- hər iki hərəkət cədvəli")
 
-def main(argv):
-    if argv == '-h' or argv == '--help':
-        print(text.Text("ady", color='#0099ff', shadow=True, skew=5))
-        print("ady -- Bakı -> Sumqayıt -> Bakı hərəkət cədvəli")
-        print("ady ['-b', '--baku', '--bakı'] -- bakı üçün hərəkət cədvəli")
-        print("ady ['-s', '--sum', '--sumgait', '--sumqayıt'] -- sumqayıt üçün hərəkət cədvəli")
-        print("ady ['-a', '--all', '--ha', '--hamısı'] -- hər iki hərəkət cədvəli")
-    else:
-        getTable()
-        if argv == "-b" or argv == "--baku" or argv == "--bakı":
-            print(format_pretty_table(baku_table, baku_header))
-            sys.exit()
-        elif argv == "-s" or argv == "--sum" or argv == "--sumgait" or argv == "--sumqayıt":
-            print(format_pretty_table(sum_table, sum_header))
-            sys.exit()
-        elif argv == "-a" or argv == "--all" or argv == "--ha" or argv == "--hamısı":
-            print(format_pretty_table(baku_table, baku_header))
-            print(format_pretty_table(sum_table, sum_header))
-            sys.exit()
+def baku():
+    getTable()
+    print(format_pretty_table(baku_table, baku_header))
 
+def sumgait():
+    getTable()
+    print(format_pretty_table(sum_table, sum_header))
 
+def all():
+    getTable()
+    print(format_pretty_table(baku_table, baku_header))
+    print(format_pretty_table(sum_table, sum_header))
+    sys.exit()
+
+def main():
+    # Mapping arguments to function
+    FUNCTION_MAP = {'help': help, 'baku' : baku, 'sumgait': sumgait, 'all': all}
+    parser = argparse.ArgumentParser()
+    parser.add_argument('command', choices=FUNCTION_MAP.keys())
+    args = parser.parse_args()
+    func = FUNCTION_MAP[args.command]
+
+    # Execute
+    func()
 
 if __name__ == '__main__':
-    if len(sys.argv) != 1:
-        main(sys.argv[1])
-    else:
-        os.system("python ady.py -h")
+    main()
