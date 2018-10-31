@@ -1,21 +1,22 @@
-# ADY - Hərəkət Cədvəli
-Azərbaycan Dəmir Yolları - Bakı Sumqayıt Bakı üzrə hərəkət cədvəlini görmək üçün CLI tətbiq.
+# ADY - Movement Schedules
+
+Azerbaijan Railways - Application CLI application for Baku Sumgait traffic schedule
 
 
 
-# İstifadə qaydası
-`$ python ady.py` argumentlər vasitəsilə istədiyiniz nəticəni verəcək
+# Usage rule
+`$ python ady.py` will give you the desired result through arguments
 
-`$ python ady.py -h` kömək üçün
+`$ python ady.py -h` for help
 
 `$ python ady.py` argumentləri:
 
 `$ python ady.py [-b] [--baku] [--bakı] [-s] [--sum] [--sumgait] [--sumqayıt] [-a] [--all] [--ha] [--hamısı]`
 
-# Niyə?
-Hər gün Bakı Sumqayıt Bakı üçün Dəmir Yol vağzalından istifadə edirəm. Müxtəlif zamanlarda çıxdığım üçün hər dəfə cədvələ baxmalı olurdum. ady.az saytında isə bunu etmək bir növ vaxt tələb edirdi(saytı açılması -> hərəkət cədvəli tapmaq -> ətraflı clickləmək və s.). İşin sürətlənməsi üçün və hərgün demək olar Terminal istifadə etdiyimə görə daha qısa yol olaraq bunu hazırladıq.
+# Why?
+Every day, I use Baku Railway Station for Sumgayit Baku. I had to look at the table every time I went out at different times. While doing ady.az, it took some time to do so (opening a site -> moving schedule -> click on it, etc.). To accelerate the work, and almost everyday, we have prepared this as a shorter way to use the Terminal.
 
 
-# Lisenziya
+# Licence
 
 MIT licensed, (c) [@hchingiz](https://twitter.com/hchingiz), [@valeh2012](https://github.com/valeh2012)
